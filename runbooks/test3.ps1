@@ -21,9 +21,6 @@ Param(
     [Int32]$RetentionDays
 )
 
-$automationAccount = "AutomationTest"
-
-
 
 # Ensures you do not inherit an AzContext in your runbook
 Disable-AzContextAutosave -Scope Process | Out-Null
@@ -43,10 +40,10 @@ $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
 
 
 # Retrieve values from Key Vault
-$adUsername = (Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretUsername).SecretValue | ConvertFrom-SecureString -AsPlainText
+$adUsername = Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretUsername -AsPlainText
 $adPassword  = (Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretPassword).SecretValue
-$storageKey = (Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretStorageKey).SecretValue | ConvertFrom-SecureString -AsPlainText
-$storageAccount = (Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretStorageAccount).SecretValue | ConvertFrom-SecureString -AsPlainText
+$storageKey = Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretStorageKey -AsPlainText
+$storageAccount = Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretStorageAccount -AsPlainText
 
 Write-Verbose "Starting database export of database '$databaseName'" -Verbose
 #$securePassword = ConvertTo-SecureString –String $azureADDatabasePassword –AsPlainText -Force 
