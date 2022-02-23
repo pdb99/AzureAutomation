@@ -6,7 +6,7 @@ $sqlServerName = 'sql-server-test1'
 $databaseName = "TestDB2"
 $secretStorageKey = "AutomationTestStorageKey"
 $secretStorageAccount = "AutomationTestStorageAccount"
-$blobContainerName = "runbook"
+$blobContainerName = "ps51"
 $RetentionDays = 6
 
 
