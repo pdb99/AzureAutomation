@@ -24,10 +24,10 @@ catch{
     }
 
 # set and store context
-$AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
+$AzureContext = Set-AzContext -Subscription 'Visual Studio Professional with MSDN' `
     -DefaultProfile $AzureContext
-
     
+
 
 # Retrieve values from Key Vault
 $adUsername = Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretUsername -AsPlainText
