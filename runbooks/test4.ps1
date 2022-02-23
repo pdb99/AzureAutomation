@@ -41,6 +41,10 @@ Write-Verbose "Starting database export of database '$databaseName'" -Verbose
 $bacpacFilename = $databaseName + (Get-Date).ToString("yyyyMMddHHmm") + ".bacpac"
 $bacpacUri = "https://" + $storageAccount + ".blob.core.windows.net/" + $blobContainerName + "/" + $bacpacFilename
 
+Write-Output "New-AzSqlDatabaseExport -ResourceGroupName $resourceGroup –ServerName $sqlServerName `
+–DatabaseName $databaseName –StorageKeytype "StorageAccessKey" –storageKey $storageKey -StorageUri $BacpacUri `
+–AdministratorLogin $adUsername –AdministratorLoginPassword $adPassword -AuthenticationType ADPassword"
+
 $exportRequest = New-AzSqlDatabaseExport -ResourceGroupName $resourceGroup –ServerName $sqlServerName `
     –DatabaseName $databaseName –StorageKeytype "StorageAccessKey" –storageKey $storageKey -StorageUri $BacpacUri `
     –AdministratorLogin $adUsername –AdministratorLoginPassword $adPassword -AuthenticationType ADPassword
