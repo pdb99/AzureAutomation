@@ -1,25 +1,14 @@
-Param(
-    [parameter(Mandatory=$true)]
-    [string]$resourceGroup,
-    [parameter(Mandatory=$true)]
-    [string]$keyVault,
-    [parameter(Mandatory=$true)]
-    [string]$secretUsername,
-    [parameter(Mandatory=$true)]
-    [string]$secretPassword,
-    [parameter(Mandatory=$true)]
-    [string]$sqlServerName,
-    [parameter(Mandatory=$true)]
-    [string]$databaseName,
-    [parameter(Mandatory=$true)]
-    [string]$secretStorageKey,
-    [parameter(Mandatory=$true)]
-    [string]$secretStorageAccount,
-    [parameter(Mandatory=$true)]
-    [string]$blobContainerName,
-    [parameter(Mandatory=$true)]
-    [Int32]$RetentionDays
-)
+$resourceGroup = "AutomationTest"
+$keyVault = "kv-pdb"
+$secretUsername = "AutomationTestUsername"
+$secretPassword = "AutomationTestPassword"
+$sqlServerName = 'sql-server-test1'
+$databaseName = "TestDB2"
+$secretStorageKey = "AutomationTestStorageKey"
+$secretStorageAccount = "AutomationTestStorageAccount"
+$blobContainerName = "runbook"
+$RetentionDays = 6
+
 
 
 # Ensures you do not inherit an AzContext in your runbook
