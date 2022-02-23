@@ -27,6 +27,7 @@ catch{
 $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription `
     -DefaultProfile $AzureContext
 
+    
 
 # Retrieve values from Key Vault
 $adUsername = Get-AzKeyVaultSecret -VaultName $keyVault -Name $secretUsername -AsPlainText
